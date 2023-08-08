@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Temperature Converter</h1>
+  <div class="container">
+    <label for="celsius">Celsius:</label>
+    <input type="number" id="celsius" placeholder="Enter temperature in Celsius">
+    <button class="btn" onclick="convertToFar()">Convert</button>
+    <div class="result">
+      <strong>Result:</strong> <span id="result"></span>
+    </div>
+  </div>
+
+  <script>
+    function convertToFar() {
+      var celsiusInput = document.getElementById("celsius");
+      var resultElement = document.getElementById("result");
+      
+      // Check if the input value is a valid number
+      if (celsiusInput.value !== "" && !isNaN(celsiusInput.value)) {
+        var celsius = parseFloat(celsiusInput.value);
+        var fahrenheit = (celsius * 9/5) + 32;
+        resultElement.textContent = fahrenheit.toFixed(2) + "°F";
+      } else {
+        resultElement.textContent = "Invalid input. Please enter a valid number.";
+      }
+    }
+  </script>
+</body>
+</html>
